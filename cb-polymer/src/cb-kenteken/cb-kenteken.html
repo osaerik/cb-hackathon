@@ -1,0 +1,39 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+
+<dom-module id="cb-kenteken">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+
+        <paper-input label="Kenteken" is="iron-input" value="{{kenteken}}">
+
+    </template>
+
+    <script>
+    Polymer({
+
+      is: 'cb-kenteken',
+
+      properties: {
+          kenteken: {
+              type: String,
+              value: 'rrr-6',
+              notify: true
+          }
+      },
+
+      listeners: {
+          'kenteken-changed': 'kentekenChanged'
+      },    
+
+      kentekenChanged: function(e){
+          console.log(this.kenteken);
+      }
+
+    });
+  </script>
+</dom-module>
