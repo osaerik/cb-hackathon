@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 <head>
     <title>cb-polymer</title>
     <meta charset="utf-8">
@@ -8,20 +8,20 @@
     <script type="text/javascript">
 
         // setup Polymer options
-        window.Polymer = {lazyRegister: true, dom: 'shadow'};
+        window.Polymer = { lazyRegister: true, dom: 'shadow' };
 
         // load webcomponents polyfills
-        (function() {
-        if ('registerElement' in document
-            && 'import' in document.createElement('link')
-            && 'content' in document.createElement('template')) {
-            // browser has web components
-        } else {
-            // polyfill web components
-            var e = document.createElement('script');
-            e.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
-            document.head.appendChild(e);
-        }
+        (function () {
+            if ('registerElement' in document
+                && 'import' in document.createElement('link')
+                && 'content' in document.createElement('template')) {
+                // browser has web components
+            } else {
+                // polyfill web components
+                var e = document.createElement('script');
+                e.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
+                document.head.appendChild(e);
+            }
         })();
 
     </script>
@@ -37,16 +37,19 @@
     </style>
 
     <link rel="import" href="/src/cb-header/cb-header.html">
+    <link rel="import" href="/src/cb-kenteken-input/cb-kenteken-input.html">
 
 </head>
 
 <body class="fullbleed layout vertical">
 
     <cb-header>
-        <div class="content">Hier staat content</div>
-    </cb-header>
+        <div class="content">
+            <cb-kenteken-input kenteken="96-TXT-6">
 
-    
+            </cb-kenteken-input>
+        </div>
+    </cb-header>
 
 </body>
 

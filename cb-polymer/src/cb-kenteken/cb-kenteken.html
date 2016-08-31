@@ -1,0 +1,29 @@
+﻿<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="cb-kenteken-input">
+    <template>
+        <style>
+            :host {
+                display: inline-block;
+            }
+        </style>
+        <label for="kenteken">Kenteken</label>
+        <input name="kenteken" type=" ext" value="{{kenteken}}" />
+    </template>
+
+    <script>
+        Polymer({
+
+            is: 'cb-kenteken-input',
+
+            properties: {
+                kenteken: {
+                    type: String,
+                    notify: true,
+                    value: null
+                },
+            },
+
+        });
+    </script>
+</dom-module>
