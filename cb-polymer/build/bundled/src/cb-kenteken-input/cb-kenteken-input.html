@@ -1,0 +1,33 @@
+<html><head><link rel="import" href="../../bower_components/polymer/polymer.html">
+
+</head><body><dom-module id="cb-kenteken-input">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+
+            .kenteken-container {
+                background-color: #f2d316;
+                border: solid 2px black;
+                border-radius: 4px;
+                margin: 5px;
+            }
+
+                .kenteken-container input {
+                    background-color: transparent;
+                    padding: 5px;
+                    font-weight: bold;
+                    font-size: 24px;
+                    width: 200px;
+                    text-align: center;
+                }
+        </style>
+        <div class="kenteken-container">
+            <input on-input="handleInput" name="kenteken" type="text" value="{{kenteken::input}}">
+        </div>
+    </template>
+
+    <script>Polymer({is:"cb-kenteken-input",properties:{kenteken:{type:String,notify:!0,value:null}},handleInput:function(e){this.properties.kenteken.length>6&&alert("too large")}});</script>
+</dom-module>
+</body></html>

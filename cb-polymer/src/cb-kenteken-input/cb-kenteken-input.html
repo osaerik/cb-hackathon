@@ -6,9 +6,26 @@
             :host {
                 display: block;
             }
+
+            .kenteken-container {
+                background-color: #f2d316;
+                border: solid 2px black;
+                border-radius: 4px;
+                margin: 5px;
+            }
+
+                .kenteken-container input {
+                    background-color: transparent;
+                    padding: 5px;
+                    font-weight: bold;
+                    font-size: 24px;
+                    width: 200px;
+                    text-align: center;
+                }
         </style>
-        <label for="kenteken">Kenteken</label>
-        <input is="iron-input" name="kenteken" type="text" value="{{kenteken::input}}" />
+        <div class="kenteken-container">
+            <input on-input="handleInput" name="kenteken" type="text" value="{{kenteken::input}}" />
+        </div>
     </template>
 
     <script>
@@ -21,10 +38,51 @@
                     type: String,
                     notify: true,
                     value: null
-
                 },
             },
 
+            formattingRegex: [
+                    /^([A-Z]{2})\-?([\d]{2})\-?([\d]{2})$/i,   // 1   XX-99-99
+                    /^([\d]{2})\-?([\d]{2})\-?([A-Z]{2})$/i,   // 2   99-99-XX
+                    /^([\d]{2})\-?([A-Z]{2})\-?([\d]{2})$/i,   // 3   99-XX-99
+                    /^([A-Z]{2})\-?([\d]{2})\-?([A-Z]{2})$/i,  // 4   XX-99-XX
+                    /^([A-Z]{2})\-?([A-Z]{2})\-?([\d]{2})$/i,  // 5   XX-XX-99
+                    /^([\d]{2})\-?([A-Z]{2})\-?([A-Z]{2})$/i,  // 6   99-XX-XX
+                    /^([\d]{2})\-?([A-Z]{3})\-?([\d]{1})$/i,   // 7   99-XXX-9
+                    /^([\d]{1})\-?([A-Z]{3})\-?([\d]{2})$/i,   // 8   9-XXX-99
+                    /^([A-Z]{2})\-?([\d]{3})\-?([A-Z]{1})$/i,  // 9   XX-999-X
+                    /^([A-Z]{1})\-?([\d]{3})\-?([A-Z]{2})$/i,  // 10  X-999-XX
+                    /^([A-Z]{3})\-?([\d]{2})\-?([A-Z]{1})$/i,  // 11  XXX-99-X
+                    /^([A-Z]{1})\-?([\d]{2})\-?([A-Z]{3})$/i,  // 12  X-99-XXX
+                    /^([\d]{1})\-?([A-Z]{2})\-?([\d]{3})$/i,   // 13  9-XX-999
+                    /^([\d]{3})\-?([A-Z]{2})\-?([\d]{1})$/i    // 14  999-XX-9
+            ],
+
+            handleInput: function (e) {
+                this.kenteken = this.formatLicensePlate(this.kenteken);
+            },
+
+            formatLicensePlate: function (value) {
+                var parts = false;
+
+                for (var i = 0; i < this.formattingRegex.length; i++) {
+                    var regex = this.formattingRegex[i];
+                    if (regex.test(value)) {
+                        parts = value.toUpperCase().match(regex);
+                    }
+                }
+
+                if (parts) {
+                    return parts[1] + '-' + parts[2] + '-' + parts[3];
+                } else {
+                    return value;
+                }
+            }
         });
+
+
+
+
+
     </script>
 </dom-module>

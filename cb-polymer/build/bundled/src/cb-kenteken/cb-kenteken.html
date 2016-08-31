@@ -1,0 +1,23 @@
+<html><head><link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../cb-kenteken-input/cb-kenteken-input.html">
+<link rel="import" href="../cb-kenteken-summary/cb-kenteken-summary.html">
+
+</head><body><dom-module id="cb-kenteken">
+    <template>
+        <style>
+            :host {
+                display: inline-block;
+            }
+        </style>
+        <cb-kenteken-input kenteken="{{kenteken}}">&lt;</cb-kenteken-input>
+        <cb-kenteken-summary kenteken="{{kenteken}}"></cb-kenteken-summary>
+
+        <label>
+            Hier is het: [[kenteken]]
+        </label>
+
+    </template>
+
+    <script>Polymer({is:"cb-kenteken",properties:{kenteken:{type:String,value:null}}});</script>
+</dom-module>
+</body></html>
