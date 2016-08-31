@@ -8,7 +8,7 @@
             }
         </style>
         <label for="kenteken">Kenteken</label>
-        <input name="kenteken" type="text" value="{{kenteken}}" />
+        <input is="iron-input" name="kenteken" type="text" value="{{kenteken::input}}" />
     </template>
 
     <script>
@@ -19,7 +19,9 @@
             properties: {
                 kenteken: {
                     type: String,
+                    notify: true,
                     value: null
+
                 },
             },
 
