@@ -1,0 +1,6 @@
+{
+  "name": "cb-polymer",
+  "short_name": "cb-polymer",
+  "start_url": "/",
+  "display": "standalone"
+}
