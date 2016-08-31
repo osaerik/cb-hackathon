@@ -1,7 +1,4 @@
-<!doctype html>
-
 <html>
-
 <head>
     <title>cb-polymer</title>
     <meta charset="utf-8">
@@ -29,18 +26,28 @@
 
     </script>
 
-    <link rel="import" href="/bower_components/polymer/polymer.html">
-    <link rel="import" href="/bower_components/paper-header-panel/paper-header-panel.html">
+    <style>
+        html, body {
+            margin: 0;
+            font-family: 'Roboto', 'Noto', sans-serif;
+            line-height: 1.5;
+            min-height: 100%;
+            background-color: #eee;
+        }
+    </style>
+
+    <link rel="import" href="/src/cb-header/cb-header.html">
 
 </head>
 
-<body class="fullbleed layout vertical" style="height: 100%">
-  <paper-header-panel class="flex">
-    <paper-toolbar>
-      <div>Hello World!</div>
-    </paper-toolbar>
-    <div class="fit">Content goes here...</div>
-  </paper-header-panel>
+<body class="fullbleed layout vertical">
+
+    <cb-header>
+        <div class="content">Hier staat content</div>
+    </cb-header>
+
+    
+
 </body>
 
 </html>

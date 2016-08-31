@@ -1,0 +1,31 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
+
+<dom-module id="cb-header">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+
+        <paper-header-panel mode="waterfall" class="">
+            <paper-toolbar><div>Centraal Beheer</div></paper-toolbar>
+            <content select=".content">    
+            </content>
+        </paper-header-panel>
+
+    </template>
+
+    <script>
+    Polymer({
+
+      is: 'cb-header',
+
+      properties: {
+      }
+
+    });
+  </script>
+</dom-module>
