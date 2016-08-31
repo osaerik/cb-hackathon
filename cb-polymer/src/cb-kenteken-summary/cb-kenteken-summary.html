@@ -1,0 +1,33 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../../bower_components/paper-header-panel/paper-header-panel.html">
+
+<dom-module id="cb-kenteken-summary">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+
+        <h2>Summary</h2>
+        <div>Dit is het kenteken: {{kenteken}}</div>
+
+
+    </template>
+
+    <script>
+        Polymer({
+
+            is: 'cb-kenteken-summary',
+
+            properties: {
+                kenteken: {
+                    type: String,
+                    value: "hk-118-z"
+                }
+            }
+
+        });
+    </script>
+</dom-module>
